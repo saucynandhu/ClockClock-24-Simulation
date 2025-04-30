@@ -1,0 +1,109 @@
+:root {
+    --bg: #0a0a12;
+    --font: #ffffff;
+    --accent: #ffffff;
+    --glow: 0 0 10px var(--accent);
+    --clock-bg: rgba(0, 247, 255, 0.05);
+  }
+  
+  [data-theme="light"] {
+    --bg: #f0f0f0;
+    --font: #333;
+    --accent: #000000;
+    --glow: none;
+    --clock-bg: rgba(0, 0, 0, 0.05);
+  }
+  
+  body {
+    background: var(--bg);
+    color: var(--font);
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .header {
+    margin: 2rem;
+    text-align: center;
+  }
+  
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .hrdigits, .mindigits {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .digit1, .digit2, .digit3, .digit4 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .clock {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--clock-bg);
+    border: 1px solid var(--font);
+    box-shadow: inset 0 0 5px var(--font), var(--glow);
+    position: relative;
+  }
+  
+  .hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%) rotate(0deg);
+    transform-origin: bottom;
+    transition: transform 5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hour {
+    width: 5px;
+    height: 40%;
+    background: var(--accent);
+    box-shadow: var(--glow);
+  }
+  
+  .minute {
+    width: 4px;
+    height: 45%;
+    background: var(--font);
+    box-shadow: var(--glow);
+  }
+  
+  .fa-moon-o {
+    color: var(--accent);
+    text-shadow: var(--glow);
+    cursor: pointer;
+    margin-left: 1rem;
+  }
+  
+  .footer {
+    margin: 2rem;
+    text-align: center;
+  }
+  
+  a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  
+  @media (max-width: 768px) {
+    .clock {
+      width: 40px;
+      height: 40px;
+    }
+  }
